@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imgs/livro.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleBusca.css">
+    <title>Buscar Livro</title>
+</head>
+<body>
+    <header>
+        <h4>Busque Por um livro</h4>
+    </header>
+    <main>
+        <div id="area-busca">
+            <h4>Qual livro você está procurando?</h4>
+            <input type="search" id="nome" placeholder="Insira o título ou autor">
+            <button type="submit" onclick="Buscar()">Buscar</button>
+        </div>
+        
+        <div id="titulo">
+            
+        </div>
+        
+        <div id="livros">
+        </div>
+    </main>
+    
+    <script>
+        var caixa = document.querySelector('#livros');
+        var titulo = document.querySelector('#titulo');
+        var input = document.querySelector('#nome');
+
+        function Buscar() {
+            var temLivro = false;
+            caixa.innerHTML = "";
+            titulo.innerHTML = "";
+            if(input.value == "") return alert("Campo Inválido!");
+            fetch("../dados.json").then((response) => {
+                response.json().then((dados) => {
+                    dados.livros.map((liv)=>{
+                        titulo.innerHTML = `<h2>Buscando por "${input.value}"</h2>`;
+                        if(liv.nome.toLowerCase().includes(input.value.toLowerCase()) ) {
+                            caixa.innerHTML+= `
+                            <div class="livro">
+                                <img class="capa" src="../${liv.img}"/>
+                                <a href="exibirLivro.html?id=${liv.id}">${liv.nome}</a>
+                                <div class="area-textos">
+                                    <p class="desc">${liv.autor}</p>
+                                </div>
+                            </div>
+                            `;
+                            temLivro = true;
+                        }
+                        else if(liv.autor.toLowerCase().includes(input.value.toLowerCase())) {
+                            caixa.innerHTML+= `
+                            <div class="livro">
+                                <img class="capa" src="../${liv.img}"/>
+                                <a href="exibirLivro.html?id=${liv.id}">${liv.nome}</a>
+                                <div class="area-textos">
+                                    <p class="desc">${liv.autor}</p>
+                                </div>
+                            </div>
+                            `;
+                            temLivro = true;
+                        }
+                    })
+                })
+            })
+        }
+    </script>
+</body>
+</html>

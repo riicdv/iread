@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../imgs/livro.png" type="image/x-icon">
+    <title>testando</title>
+</head>
+<body>
+    
+    
+    <script>
+        var main = document.querySelector('body');
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+
+        iniciarPagina = () => {
+            var id = getParameterByName('id');
+            console.log(id);
+            fetch("../dados.json").then((response) => {
+                response.json().then((dados) => {
+                    dados.livros.map((liv)=>{
+                        console.log(liv.id);
+                        if(id == liv.id) {
+                            document.title = liv.nome;
+                            main.innerHTML+= `
+                                <header>
+                                    <h4>${liv.nome}</h4>
+                                </header>
+                                    <div id="cabecalho">
+                                        <img src="../${liv.img}" title="${liv.nome}">
+                                        <div id="area-text">
+                                        <h5>${liv.nome}</h5>
+                                        <p id="autor">${liv.autor}</p>
+                                        <p id="desc">Ainda vou fazer a descrição</p>
+                                        </div>
+                                    </div>   
+
+                                    <div id="area-coment">
+                                        <input type="text" name="comentario" id="comentario" placeholder="Faça um comentário...">
+                                        <button type="submit" onclick="alertar()">Comentar</button>
+                                    </div>
+                                    <div id="comentarios">
+                                        Este livro ainda não possui avaliações.    
+                                    </div>
+                            `;
+                        }
+                    })
+                })
+            })
+        }
+
+        iniciarPagina();
+
+        function alertar() {
+            alert("esta função ainda não está disponível. :(")
+        }
+    </script>
+
+    
+</body>
+</html>
