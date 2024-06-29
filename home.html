@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/livro.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Home | iRead</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo">iRead</h1>
+        <nav class="">
+            <a href="livros/busca.html">Buscar Livro</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="titulo">
+            <h2>Livros em Destaque</h2>
+        </div>
+        
+        <div id="livros">
+        </div>
+
+    </main>
+
+    <footer>
+        <p>O <a href="#">iRead</a> é um projeto autônomo em fase de desenvolvimento.</p>
+    </footer>
+    
+    <script>
+        iniciarSite = () => {
+            var caixa = document.getElementById('livros');
+
+            fetch("dados.json").then((response) => {
+                response.json().then((dados) => {
+                    dados.livros.map((liv)=>{
+                        caixa.innerHTML+= `
+                        <div class="livro">
+                            <img class="capa" src="${liv.img}"/>
+                            <a href="livros/exibirLivro.html?id=${liv.id}">${liv.nome}</a>
+                            <div class="area-textos">
+                                <p class="desc">${liv.autor}</p>
+                            </div>
+                        </div>
+                        `;
+                    })
+                })
+            })
+            
+        }
+
+        iniciarSite();
+    </script>
+    
+</body>
+</html>

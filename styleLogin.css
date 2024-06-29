@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --roxo: #4F30FF;
+}
+
+::selection {
+    background-color: var(--roxo);
+    color: #fff;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background-color: #fafafa;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.area-login {
+    position: absolute;
+    top: 10%;
+    background-color: #fff;
+    width: 40%;
+    height: 60%;
+    padding: 20px;
+    box-shadow: 0px 0px 29px -14px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.esquerda {
+    width: 50%;
+    padding: 20px;
+}
+
+.esquerda a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#leitura-img {
+    height: 400px;
+}
+
+.direita {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    align-items:center;
+}
+
+h5 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.row {
+    width: 100%;
+    position: relative;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: 0;
+    border-bottom: 2px solid #000;
+    transition: 0.5s;
+    margin: 5px 0;
+}
+input:focus {
+    border-color: var(--roxo);
+}
+#senha {
+    padding-right: 50px;
+}
+
+
+button {
+    width: 100%;
+    outline: none;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--roxo);
+    color: #fff;
+    font-weight: bolder;
+    margin-top: 20px;
+    transition: 0.5s;
+}
+button:hover {
+    box-shadow: 0px 0px 29px -14px rgba(0,0,0,0.5);
+}
+
+p {
+    text-align: center;
+    font-size: 15px;
+}
+p a {
+    text-decoration: none;
+    color: var(--roxo);
+    transition: 0.3s;
+}
+p a:hover {
+    text-decoration:underline;
+}
+
+.row img {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.row img {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    border-radius: 50%;
+}
+.row img:hover {
+    background-color: #e1e1e1;
+}
+
+@media (max-width: 576px) {
+    .area-login {
+        width: 70%;
+    }
+    .direita {
+        width: 90%;
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "livros": [
+        {
+            "id": 10000,
+            "nome": "Dom Casmurro",
+            "img": "capas/dCasmurro.jpg",
+            "autor": "Por Machado de Assis",
+            "nota": 4.8
+        },
+        {
+            "id": 10001,
+            "nome": "Grande Sertão: Veredas",
+            "img": "capas/grandeSertao.jpg",
+            "autor": "Por Guimarães Rosa",
+            "nota": 4.9
+        },
+        {
+            "id": 10002,
+            "nome": "Memórias Póstumas de Brás Cubas",
+            "img": "capas/memoriasPostumas.jpg",
+            "autor": "Por Machado de Assis",
+            "nota": 4.7
+        },
+        {
+            "id": 10003,
+            "nome": "Vidas Secas",
+            "img": "capas/vidasecas.jpg",
+            "autor": "Por Graciliano Ramos",
+            "nota": 4.8
+        },
+        {
+            "id": 10004,
+            "nome": "Gabriela, Cravo e Canela",
+            "img": "capas/gabrielacravo.jpg",
+            "autor": "Por Jorge Amado",
+            "nota": 4.7
+        },
+        {
+            "id": 10005,
+            "nome": "O Alienista",
+            "img": "capas/oalienista.jpg",
+            "autor": "Por Machado de Assis",
+            "nota": 4.6
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLogin.css">
+    <title>iRead | LogIn</title>
+</head>
+<body>
+    <div class="area-login">
+        
+        <div class="direita">
+            <h5>Bem vind@ de Volta!</h5>
+            <div class="row">
+                <input type="email" name="email" id="email" placeholder="Digite Seu E-mail">
+            </div>
+            <div class="row">
+                <input type="password" name="senha" id="senha" placeholder="Digite Sua Senha">
+                <img id="olho"src="imgs/view.png" title="Mostrar Senha">
+            </div>
+            <p>Ainda não possui cadastro? <a href="cadastro.html">Faça agora!</a></p>
+            
+            <button type="submit" onclick="alertar()">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        var pass = document.querySelector('#senha');
+        var img = document.querySelector('#olho');
+
+        img.addEventListener('click', () => {
+            if(pass.type === 'password') {
+                pass.setAttribute('type', 'text');
+                img.setAttribute('src', 'imgs/hidden.png');
+            }else {
+                pass.setAttribute('type', 'password');
+                img.setAttribute('src', 'imgs/view.png');
+            }
+        })
+
+        function alertar() {
+            alert("esta função ainda não está disponível. :(")
+        }
+    </script>
+</body>
+</html>
